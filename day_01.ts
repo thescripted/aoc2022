@@ -5,14 +5,16 @@ readFile('./input.txt', { encoding: 'utf-8' }, (err, data) => {
     return;
   }
 
-  let reindeer_cal = data.split(/\n\n/).map(reindeer_total_calories);
-  const sorted_reindeer = reindeer_cal.sort();
+  let calories = data
+      .split(/\n\n/)
+      .map(reindeer_total_calories)
+      .sort();
 
-  console.log(sorted_reindeer[sorted_reindeer.length - 1]); // <-- part 1
+  console.log(calories[calories.length - 1]); // <-- part 1
 
-  console.log(sorted_reindeer[sorted_reindeer.length - 1] +
-              sorted_reindeer[sorted_reindeer.length - 2] +
-              sorted_reindeer[sorted_reindeer.length - 3]); // <-- part 2
+  console.log(calories[calories.length - 1] +
+              calories[calories.length - 2] +
+              calories[calories.length - 3]); // <-- part 2
 });
 
 function reindeer_total_calories(reindeer: string): number {
